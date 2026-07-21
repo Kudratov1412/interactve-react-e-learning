@@ -12,21 +12,21 @@ const Courses = () => {
       <Course>
         <h2>Interactiv React va Redux</h2>
         <div className="line"></div>
-        <Link>
+        <Link to="/courses/react">
           <img src={pic1} alt="react-redux" />
         </Link>
       </Course>
       <Course>
         <h2>Tez kunda 😮</h2>
         <div className="line"></div>
-        <Link>
+        <Link to="/courses/soon">
           <img src={pic2} alt="tez kunda" />
         </Link>
       </Course>
       <Course>
         <h2>Interactiv JavaScript</h2>
         <div className="line"></div>
-        <Link>
+        <Link to="/courses/javascript">
           <img src={pic3} alt="javascript" />
         </Link>
       </Course>
