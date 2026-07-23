@@ -8,27 +8,37 @@ import Courses from "./pages/Courses";
 import ContactUs from "./pages/ContactUs";
 import CourseDetail from "./pages/CourseDetail";
 // Router
-import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Switch,
+  Route,
+  useHistory,
+  useLocation,
+} from "react-router-dom/cjs/react-router-dom.min";
+// Animation
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <GlobalStyle />
       <Nav />
-      <Switch>
-        <Route path="/" exact>
-          <AboutUs />
-        </Route>
-        <Route path="/courses" exact>
-          <Courses />
-        </Route>
-        <Route path="/courses/:id">
-          <CourseDetail />
-        </Route>
-        <Route path="/contact">
-          <ContactUs />
-        </Route>
-      </Switch>
+      <AnimatePresence exitBeforeEnter="true">
+        <Switch location={location} key={location.pathname}>
+          <Route path="/" exact>
+            <AboutUs />
+          </Route>
+          <Route path="/courses" exact>
+            <Courses />
+          </Route>
+          <Route path="/courses/:id">
+            <CourseDetail />
+          </Route>
+          <Route path="/contact">
+            <ContactUs />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </div>
   );
 }

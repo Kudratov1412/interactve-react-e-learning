@@ -5,10 +5,18 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import pic1 from "./../img/1-pic.jpg";
 import pic2 from "./../img/2-pic.jpg";
 import pic3 from "./../img/3-pic.jpg";
+// Animation
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
 
 const Courses = () => {
   return (
-    <StyledCourses>
+    <StyledCourses
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+    >
       <Course>
         <h2>Interactiv React va Redux</h2>
         <div className="line"></div>
@@ -34,7 +42,7 @@ const Courses = () => {
   );
 };
 
-const StyledCourses = styled.div`
+const StyledCourses = styled(motion.div)`
   min-height: 10vh;
   padding: 5rem 10rem;
   img {
